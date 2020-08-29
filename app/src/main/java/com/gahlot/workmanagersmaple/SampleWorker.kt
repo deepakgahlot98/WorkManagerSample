@@ -22,13 +22,12 @@ class SampleWorker(
 
     override fun doWork(): Result {
         val tableNumber = inputData.getInt("number",10)
-        Log.i(TAG, "doWork: Number provided to calculate: " + tableNumber)
-        for (i in 1..10) {
-            result = tableNumber * i
-            TimeUnit.SECONDS.sleep(1)
-            createNotification("Table of $tableNumber ", result)
-        }
-        return Result.success()
+//        for (i in 1..10) {
+//            result = tableNumber * i
+//            TimeUnit.SECONDS.sleep(1)
+            createNotification("Charge Battery to ", result)
+//        }
+        return Result.retry()
     }
 
     fun createNotification(title: String, description: Int) {
